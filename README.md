@@ -1,15 +1,27 @@
 # flutter_phone_call_handler
 
-Allow end a call from flutter
+Allow handle a call from flutter, for example, end a call.
 
 ## Getting Started
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+```dart
+import 'package:flutter_phone_call_handler/flutter_phone_call_handler.dart';
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+final _flutterPhoneCallHandlerPlugin = FlutterPhoneCallHandler();
+
+// Request permission
+await _flutterPhoneCallHandlerPlugin.requestPermissions();
+
+// End call
+var success = await _flutterPhoneCallHandlerPlugin.endCall();
+
+```
+
+## Android
+
+Required permissions:
+
+```xml
+<uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+```
 
